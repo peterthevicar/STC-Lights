@@ -1,7 +1,11 @@
 #!/bin/bash
 INIT_D="$(pwd)"
+if [ ! -d "STC-Lights" ]; then
+	echo "Error: no STC-Lights directory found"
+	exit 1
+fi
+
 for d in STC-Lights ws2812-animator; do
-	cd ../.. # currently in STC-lights/support
 	echo "**** $d"
 	cd "$d"
 	if [ -z "$1" -o "$1" == "status" ]; then
